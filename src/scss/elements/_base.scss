@@ -4,35 +4,61 @@ body {
   color: $secondary-color;
 }
 .homeHeader {
-  background: gainsboro;
-  height: 400px;
-  width: 100vw;
+  width: 85vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 37px auto 0;
+}
+.topMenu {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 17px;
+}
+.topMenu__nav,
+.mainMenu__nav {
+  display: flex;
+}
+.topMenu__nav--item {
+  margin-left: 30px;
+  list-style: none;
+  text-decoration: none;
+  color: $light-color;
+}
+.mainMenu {
+  font-size: 18px;
+  font-weight: 300;
+  color: $dark-color;
+}
+.mainMenu__nav--item {
+  margin-left: 55px;
+  list-style: none;
 }
 .hero {
-  @extend .homeHeader;
+  height: 400px;
   background: white;
 }
 .threeColumns {
-  @extend .homeHeader;
+  @extend .hero;
   background: $focus-color;
 }
 .info {
-  @extend .homeHeader;
+  @extend .hero;
   background: white;
 }
 .about {
-  @extend .homeHeader;
+  @extend .hero;
   background: gainsboro;
 }
 .help {
-  @extend .homeHeader;
+  @extend .hero;
   background: goldenrod;
 }
 .contact {
-  @extend .homeHeader;
+  @extend .hero;
   background: whitesmoke;
 }
 .footer {
-  @extend .homeHeader;
+  @extend .hero;
   background: gainsboro;
 }
