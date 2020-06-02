@@ -3,3 +3,36 @@ body {
   font-family: $font-base;
   color: $secondary-color;
 }
+.homeHeader {
+  background: gainsboro;
+  height: 400px;
+  width: 100vw;
+}
+.hero {
+  @extend .homeHeader;
+  background: white;
+}
+.threeColumns {
+  @extend .homeHeader;
+  background: $focus-color;
+}
+.info {
+  @extend .homeHeader;
+  background: white;
+}
+.about {
+  @extend .homeHeader;
+  background: gainsboro;
+}
+.help {
+  @extend .homeHeader;
+  background: goldenrod;
+}
+.contact {
+  @extend .homeHeader;
+  background: whitesmoke;
+}
+.footer {
+  @extend .homeHeader;
+  background: gainsboro;
+}
