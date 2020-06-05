@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { auth } from 'firebase'
 
 const INITIAL_STATE = {
   username: '',
@@ -21,7 +20,10 @@ const SignUpForm = ({ firebase }) => {
     firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then((authUser) => {
-        setUserData({ ...userData })
+        authUser.user.updateProfile({
+          displayName: username,
+        })
+        setUserData({ ...INITIAL_STATE })
         history.push('/')
       })
       .catch((error) => {

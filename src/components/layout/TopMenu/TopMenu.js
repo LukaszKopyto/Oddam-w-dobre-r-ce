@@ -1,21 +1,15 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import SignOutButton from '../SignOutButton/SignOutButton'
+import React, { useContext } from 'react'
+import { AuthUserContext } from '../Session'
+import TopMenuAuth from './TopMenuAuth'
+import TopMenuNoAuth from './TopMenuNoAuth'
 
 const TopMenu = () => {
-  return (
-    <section className='topMenu'>
-      <nav className='topMenu__nav'>
-        <NavLink to='/logowanie' className='topMenu__nav--item'>
-          Zaloguj
-        </NavLink>
-        <NavLink to='/rejestracja' className='topMenu__nav--item'>
-          Załóż konto
-        </NavLink>
-        <SignOutButton />
-      </nav>
-    </section>
-  )
+  let authUser = useContext(AuthUserContext)
+  if (authUser) {
+    console.log(authUser.displayName)
+  }
+
+  return <>{authUser ? <TopMenuAuth /> : <TopMenuNoAuth />}</>
 }
 
 export default TopMenu
