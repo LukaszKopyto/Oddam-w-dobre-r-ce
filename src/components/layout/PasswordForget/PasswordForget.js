@@ -22,7 +22,7 @@ const PasswordForget = () => {
         setUserData({ ...INITITAL_STATE })
       })
       .catch((error) => {
-        setUserData({ error })
+        setUserData((prev) => ({ email: '', error }))
       })
   }
 

@@ -6,31 +6,31 @@ import SignInPage from '../../views/SignInPage'
 import { FirebaseContext } from '../../Firebase'
 import { AuthUserContext } from '../Session'
 import PasswordForgetPage from '../../views/PasswordForgetPage/PasswordForgetPage'
+import HandOver from '../../views/HandOver'
 
 function App() {
-  const [authUser, setAuthUser] = useState(null)
+  const [user, setUser] = useState(null)
 
   const firebase = useContext(FirebaseContext)
 
   useEffect(() => {
-    firebase.auth.onAuthStateChanged((authUser) => {
-      authUser ? setAuthUser(authUser) : setAuthUser(null)
+    let listener = firebase.auth.onAuthStateChanged((authUser) => {
+      authUser ? setUser(authUser) : setUser(null)
     })
     return () => {
-      firebase.auth.onAuthStateChanged((authUser) => {
-        authUser ? setAuthUser(authUser) : setAuthUser(null)
-      })
+      listener()
     }
-  }, [])
+  }, [firebase.auth])
 
   return (
-    <AuthUserContext.Provider value={authUser}>
+    <AuthUserContext.Provider value={user}>
       <Router>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/rejestracja' component={SignUpPage} />
           <Route path='/logowanie' component={SignInPage} />
           <Route path='/przypomnij-haslo' component={PasswordForgetPage} />
+          <Route path='/oddaj-rzecz' component={HandOver} />
         </Switch>
       </Router>
     </AuthUserContext.Provider>

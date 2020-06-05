@@ -5,9 +5,6 @@ import TopMenuNoAuth from './TopMenuNoAuth'
 
 const TopMenu = () => {
   let authUser = useContext(AuthUserContext)
-  if (authUser) {
-    console.log(authUser.displayName)
-  }
 
   return <>{authUser ? <TopMenuAuth /> : <TopMenuNoAuth />}</>
 }
