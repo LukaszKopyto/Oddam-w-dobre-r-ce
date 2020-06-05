@@ -37,26 +37,28 @@ const SignInForm = ({ firebase }) => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        name='email'
-        value={email}
-        onChange={onChange}
-        type='text'
-        placeholder='Adres e-mail'
-      />
-      <input
-        name='password'
-        value={password}
-        onChange={onChange}
-        type='password'
-        placeholder='Hasło'
-      />
-      <button disabled={isInvalid} type='submit'>
-        Zaloguj się
-      </button>
-      {error && <p>{error.message}</p>}
-    </form>
+    <>
+      <form onSubmit={onSubmit}>
+        <input
+          name='email'
+          value={email}
+          onChange={onChange}
+          type='text'
+          placeholder='Adres e-mail'
+        />
+        <input
+          name='password'
+          value={password}
+          onChange={onChange}
+          type='password'
+          placeholder='Hasło'
+        />
+        <button disabled={isInvalid} type='submit'>
+          Zaloguj się
+        </button>
+        {error && <p>{error.message}</p>}
+      </form>
+    </>
   )
 }
 

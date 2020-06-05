@@ -5,6 +5,7 @@ import SignUpPage from '../../views/SignUpPage'
 import SignInPage from '../../views/SignInPage'
 import { FirebaseContext } from '../../Firebase'
 import { AuthUserContext } from '../Session'
+import PasswordForgetPage from '../../views/PasswordForgetPage/PasswordForgetPage'
 
 function App() {
   const [authUser, setAuthUser] = useState(null)
@@ -29,6 +30,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route path='/rejestracja' component={SignUpPage} />
           <Route path='/logowanie' component={SignInPage} />
+          <Route path='/przypomnij-haslo' component={PasswordForgetPage} />
         </Switch>
       </Router>
     </AuthUserContext.Provider>
