@@ -21,7 +21,7 @@ const SignInForm = ({ firebase }) => {
     firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
-        setUserData({ ...userData })
+        setUserData({ ...INITIAL_STATE })
         history.push('/')
       })
       .catch((error) => {

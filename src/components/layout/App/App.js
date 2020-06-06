@@ -7,6 +7,7 @@ import { FirebaseContext } from '../../Firebase'
 import { AuthUserContext } from '../Session'
 import PasswordForgetPage from '../../views/PasswordForgetPage/PasswordForgetPage'
 import HandOver from '../../views/HandOver'
+import Admin from '../../views/Admin/Admin'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -17,6 +18,7 @@ function App() {
     let listener = firebase.auth.onAuthStateChanged((authUser) => {
       authUser ? setUser(authUser) : setUser(null)
     })
+
     return () => {
       listener()
     }
@@ -31,6 +33,7 @@ function App() {
           <Route path='/logowanie' component={SignInPage} />
           <Route path='/przypomnij-haslo' component={PasswordForgetPage} />
           <Route path='/oddaj-rzecz' component={HandOver} />
+          <Route path='/admin' component={Admin} />
         </Switch>
       </Router>
     </AuthUserContext.Provider>
