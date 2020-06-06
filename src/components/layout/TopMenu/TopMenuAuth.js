@@ -9,9 +9,15 @@ const TopMenu = () => {
   return (
     <section className='topMenu'>
       <nav className='topMenu__nav'>
-        <p>Cześć {authUser && authUser.displayName}</p>
+        <p className='topMenu__nav--greet'>
+          Cześć {authUser && authUser.displayName}
+        </p>
 
-        <NavLink to='/#' className='topMenu__nav--item'>
+        <NavLink
+          to='/oddaj-rzecz'
+          className='topMenu__nav--item focus'
+          title='Oddaj rzeczy'
+        >
           Oddaj rzeczy
         </NavLink>
         <SignOutButton />

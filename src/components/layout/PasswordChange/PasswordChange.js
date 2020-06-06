@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { FirebaseContext } from '../Firebase'
+import { FirebaseContext } from '../../Firebase'
 
 const INITIAL_STATE = {
   passwordOne: '',

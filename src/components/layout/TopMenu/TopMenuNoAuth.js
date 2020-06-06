@@ -5,10 +5,14 @@ const TopMenu = () => {
   return (
     <section className='topMenu'>
       <nav className='topMenu__nav'>
-        <NavLink to='/logowanie' className='topMenu__nav--item'>
+        <NavLink to='/logowanie' className='topMenu__nav--item' title='Zaloguj'>
           Zaloguj
         </NavLink>
-        <NavLink to='/rejestracja' className='topMenu__nav--item'>
+        <NavLink
+          to='/rejestracja'
+          className='topMenu__nav--item focus'
+          title='Załó konto'
+        >
           Załóż konto
         </NavLink>
       </nav>

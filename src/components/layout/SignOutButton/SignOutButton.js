@@ -5,7 +5,12 @@ const SignOutButton = () => {
   const firebase = useContext(FirebaseContext)
 
   return (
-    <button type='button' onClick={firebase.doSignOut}>
+    <button
+      type='button'
+      onClick={firebase.doSignOut}
+      className='topMenu__nav--item menuBtn'
+      title='Wyloguj'
+    >
       Wyloguj
     </button>
   )
