@@ -1,0 +1,49 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  & img {
+    width: 253px;
+    margin-bottom: 34px;
+  }
+}
+.info__title {
+  font-size: 38px;
+  line-height: 55px;
+  margin-top: 55px;
+}
+.info__fourSteps {
+  width: 100vw;
+  background: $background-color;
+  padding: 73px 0;
+}
+.info__fourSteps-container {
+  width: 70vw;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+}
+.info__fourSteps-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & p {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    max-width: 130px;
+  }
+  & p:first-of-type::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100px;
+    margin: 15px auto;
+    background: $light-color;
+  }
+  & img {
+    height: 83px;
+    margin: 8px;
+  }
+}
