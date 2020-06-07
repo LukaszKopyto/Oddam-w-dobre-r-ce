@@ -2,10 +2,6 @@ body {
   font-family: $font-base;
   color: $secondary-color;
 }
-.about {
-  @extend .hero;
-  background: gainsboro;
-}
 .help {
   @extend .hero;
   background: goldenrod;
