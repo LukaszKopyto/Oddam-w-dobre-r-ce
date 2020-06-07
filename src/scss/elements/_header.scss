@@ -1,0 +1,133 @@
+.homeHeader {
+  width: 85vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 28px auto 0;
+}
+.topMenu {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 17px;
+}
+.topMenu__nav,
+.mainMenu__nav {
+  display: flex;
+}
+.topMenu__nav--item {
+  margin-left: 20px;
+  list-style: none;
+  text-decoration: none;
+  color: $light-color;
+  padding: 9px 10px;
+  text-align: center;
+  &::before {
+    display: block;
+    content: attr(title);
+    font-weight: bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  &:hover {
+    font-weight: 600;
+  }
+  &.focus {
+    border: 1px solid $focus-color;
+  }
+}
+.topMenu__nav--greet {
+  margin-left: 20px;
+  padding: 9px 10px;
+  text-align: center;
+}
+.menuBtn {
+  font-size: 14px;
+  font-weight: 300;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.mainMenu {
+  font-size: 18px;
+  font-weight: 300;
+  color: $dark-color;
+}
+.mainMenu__nav--item {
+  margin-left: 35px;
+  list-style: none;
+  white-space: nowrap;
+  padding: 9px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: $secondary-color;
+  text-align: center;
+  &:first-child {
+    border: 1px solid $light-color;
+    padding: 9px 20px;
+  }
+  &::before {
+    display: block;
+    content: attr(title);
+    font-weight: bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  &:hover {
+    font-weight: 600;
+  }
+}
+.hero {
+  height: calc(100vh - 90px);
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+.hero__firstSection {
+  width: 50vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+.hero__secondSection {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  & h1 {
+    font-size: 38px;
+    line-height: 55px;
+    text-align: center;
+    & span::after {
+      content: '';
+      display: block;
+    }
+  }
+  & img {
+    width: 253px;
+    margin: 25px 0 65px;
+  }
+}
+.hero__links {
+  display: flex;
+  justify-content: space-between;
+  & a {
+    width: 180px;
+    padding: 13px 53px;
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 40px;
+    color: #3c3c3c;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #3c3c3c;
+    &:nth-child(1) {
+      margin-right: 44px;
+    }
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}

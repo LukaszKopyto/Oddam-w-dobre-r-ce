@@ -1,0 +1,30 @@
+.threeColumns {
+  display: flex;
+  justify-content: space-evenly;
+  background: $focus-color;
+}
+.threeColumns__box {
+  width: 20%;
+  margin: 46px 0 86px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & h2 {
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 300;
+    margin: 0 0 28px;
+  }
+  & span {
+    font-size: 90px;
+    line-height: 122px;
+  }
+  & p {
+    font-family: $font-alt;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 18px;
+    text-align: center;
+  }
+}
