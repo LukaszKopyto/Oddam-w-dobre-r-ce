@@ -1,7 +1,7 @@
 .btn-primary {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 100;
-  line-height: 45px;
+  line-height: 40px;
   text-align: center;
   text-transform: uppercase;
   color: $dark-color;
@@ -10,6 +10,7 @@
   background: transparent;
   text-decoration: none;
   margin: 35px 0 80px;
+  flex: 0;
   & span::after {
     content: '';
     display: block;
@@ -17,5 +18,7 @@
   &:hover {
     background: $light-color;
     color: $background-color;
+    font-weight: 600;
+    text-align: center;
   }
 }
