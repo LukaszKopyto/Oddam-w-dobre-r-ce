@@ -1,0 +1,51 @@
+.help {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 80px;
+  & h2 {
+    font-size: 38px;
+    line-height: 55px;
+    margin-top: 70px;
+  }
+  & img {
+    width: 253px;
+  }
+}
+.help__nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+.help__item {
+  width: 75vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 31px 0;
+  border-bottom: 1px solid $light-color;
+  & h3 {
+    font-size: 26px;
+    line-height: 31px;
+    font-family: $font-alt;
+  }
+  & p {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+.help__pagination {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: $light-color;
+  padding-top: 63px;
+  & span {
+    padding: 10px;
+    margin: 0 15px;
+    cursor: pointer;
+    &.active {
+      border: 1px solid $light-color;
+    }
+  }
+}

@@ -4,7 +4,7 @@ import ThreeColums from '../../layout/ThreeColumns'
 import Hero from '../../layout/Hero'
 import Info from '../../layout/Info'
 import AboutUs from '../../layout/AboutUs'
-import Help from '../../layout/Help'
+import WhoWeHelp from '../../layout/WhoWeHelp'
 import Contact from '../../layout/Contact'
 import Footer from '../../layout/Footer'
 
@@ -16,7 +16,7 @@ const Home = () => {
       <ThreeColums />
       <Info />
       <AboutUs />
-      <Help />
+      <WhoWeHelp />
       <Contact />
       <Footer />
     </>
