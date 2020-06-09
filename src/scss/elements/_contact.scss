@@ -1,0 +1,71 @@
+.contact {
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.contact__bg {
+  width: 100vw;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.3;
+}
+.contact__form {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  & h2 {
+    font-size: 38px;
+    line-height: 55px;
+  }
+  & img {
+    width: 253px;
+    margin-bottom: 75px;
+  }
+  & label {
+    font-size: 16px;
+    line-height: 85px;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    &[for='message'] {
+      width: 528px;
+    }
+  }
+  & textarea {
+    width: 528px;
+    height: 97px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  & input {
+    font-family: $font-base;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid $light-color;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  & textarea {
+    font-family: $font-base;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid $light-color;
+    width: 100%;
+  }
+}
+.contact__form-twoInputs {
+  display: flex;
+  justify-content: space-between;
+}
+.contact__form-submit {
+  font-size: 18px;
+  text-transform: unset;
+  line-height: 32px;
+  padding: 13px 53px;
+  margin-top: 64px;
+  float: right;
+  margin-bottom: 270px;
+}

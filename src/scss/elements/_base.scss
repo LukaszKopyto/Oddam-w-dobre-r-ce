@@ -2,11 +2,3 @@ body {
   font-family: $font-base;
   color: $secondary-color;
 }
-.contact {
-  @extend .hero;
-  background: whitesmoke;
-}
-.footer {
-  @extend .hero;
-  background: gainsboro;
-}
