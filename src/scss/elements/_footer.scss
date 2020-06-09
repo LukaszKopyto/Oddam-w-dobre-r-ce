@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 19px;
+  padding: 0;
+  position: relative;
+}
+.footer__social {
+  position: absolute;
+  bottom: 0;
+  right: 142px;
+  & img {
+    margin-right: 20px;
+  }
+}
