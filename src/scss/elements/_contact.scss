@@ -27,12 +27,6 @@
   & label {
     font-size: 16px;
     line-height: 85px;
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-    &[for='message'] {
-      width: 528px;
-    }
   }
   & textarea {
     width: 528px;
@@ -56,6 +50,14 @@
     width: 100%;
   }
 }
+.contact__form-inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+.textarea {
+  width: 528px;
+}
 .contact__form-twoInputs {
   display: flex;
   justify-content: space-between;
@@ -68,4 +70,15 @@
   margin-top: 64px;
   float: right;
   margin-bottom: 270px;
+}
+.contact__form .error {
+  border-bottom: 1px solid orangered;
+}
+.contact__form .error__info {
+  color: orangered;
+}
+.contact__form-info {
+  color: green;
+  font-weight: 600;
+  font-size: 18px;
 }
