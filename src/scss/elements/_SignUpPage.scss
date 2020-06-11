@@ -1,0 +1,25 @@
+.SignUpPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 60px auto;
+  position: relative;
+  & .form-wrapper {
+    background: $background-color;
+    padding: 40px 65px;
+    min-width: 384px;
+  }
+  & .btn-small {
+    float: right;
+  }
+  a {
+    text-decoration: none;
+    color: $dark-color;
+    font-size: 18px;
+    bottom: 72px;
+    position: absolute;
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}

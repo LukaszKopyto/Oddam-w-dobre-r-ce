@@ -24,31 +24,31 @@
     width: 253px;
     margin-bottom: 75px;
   }
-  & label {
-    font-size: 16px;
-    line-height: 85px;
-  }
-  & textarea {
-    width: 528px;
-    height: 97px;
-    font-size: 18px;
-    line-height: 24px;
-  }
-  & input {
-    font-family: $font-base;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid $light-color;
-    font-size: 18px;
-    line-height: 24px;
-  }
-  & textarea {
-    font-family: $font-base;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid $light-color;
-    width: 100%;
-  }
+  // & label {
+  //   font-size: 16px;
+  //   line-height: 85px;
+  // }
+  // & textarea {
+  //   width: 528px;
+  //   height: 97px;
+  //   font-size: 18px;
+  //   line-height: 24px;
+  // }
+  // & input {
+  //   font-family: $font-base;
+  //   background: transparent;
+  //   border: 0;
+  //   border-bottom: 1px solid $light-color;
+  //   font-size: 18px;
+  //   line-height: 24px;
+  // }
+  // & textarea {
+  //   font-family: $font-base;
+  //   background: transparent;
+  //   border: 0;
+  //   border-bottom: 1px solid $light-color;
+  //   width: 100%;
+  // }
 }
 .contact__form-inputContainer {
   display: flex;
