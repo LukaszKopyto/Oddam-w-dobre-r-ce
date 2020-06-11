@@ -1,11 +1,12 @@
 .btn-primary {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 100;
-  line-height: 40px;
+  line-height: 38px;
   text-align: center;
   text-transform: uppercase;
   color: $dark-color;
-  padding: 13px 50px;
+  min-width: 200px;
+  padding: 13px 30px;
   border: 1px solid $light-color;
   background: transparent;
   text-decoration: none;

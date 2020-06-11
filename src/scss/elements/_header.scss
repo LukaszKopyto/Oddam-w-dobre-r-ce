@@ -80,6 +80,7 @@
 }
 .hero {
   height: calc(100vh - 90px);
+  min-height: 500px;
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -97,8 +98,8 @@
   align-items: center;
   justify-content: center;
   & h1 {
-    font-size: 38px;
-    line-height: 55px;
+    font-size: 33px;
+    line-height: 45px;
     text-align: center;
     & span::after {
       content: '';
