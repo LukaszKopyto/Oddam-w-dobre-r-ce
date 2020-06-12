@@ -105,7 +105,7 @@ const SignUpForm = ({ firebase }) => {
             Załóż konto
           </button>
           <p className='form__links'>
-            <Link to='/logowanie' title='Zaloguj się'>
+            <Link to='/logowanie' title='Zaloguj się' className='align'>
               Zaloguj się
             </Link>
           </p>

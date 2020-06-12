@@ -13,10 +13,10 @@
   & .btn-small {
     float: right;
   }
-  a {
-    bottom: 72px;
-    position: absolute;
-  }
+}
+.align {
+  bottom: 72px;
+  position: absolute;
 }
 .SignUpPage .form__links {
   text-align: left;
@@ -43,5 +43,23 @@
     &:hover {
       font-weight: 600;
     }
+  }
+}
+.SignOutPage {
+  @extend .SignInPage;
+  & h1 {
+    margin-bottom: 25px;
+    text-align: center;
+    & span::after {
+      content: '';
+      display: block;
+    }
+  }
+  & img {
+    margin-bottom: 35px;
+  }
+  & .btn-small {
+    float: unset;
+    margin-top: 0;
   }
 }

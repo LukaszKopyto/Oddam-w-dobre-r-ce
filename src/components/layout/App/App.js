@@ -8,6 +8,7 @@ import { AuthUserContext } from '../Session'
 import PasswordForgetPage from '../../views/PasswordForgetPage/PasswordForgetPage'
 import HandOver from '../../views/HandOver'
 import Admin from '../../views/Admin/Admin'
+import SignOutPage from '../../views/SignOutPage'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -31,6 +32,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route path='/rejestracja' component={SignUpPage} />
           <Route path='/logowanie' component={SignInPage} />
+          <Route path='/wylogowano' component={SignOutPage} />
           <Route path='/przypomnij-haslo' component={PasswordForgetPage} />
           <Route path='/oddaj-rzecz' component={HandOver} />
           <Route path='/admin' component={Admin} />
