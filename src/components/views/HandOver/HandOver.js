@@ -1,6 +1,9 @@
 import React, { useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { FirebaseContext } from '../../Firebase'
+import Contact from '../../layout/Contact'
+import Footer from '../../layout/Footer'
+import { HeroHandOver } from '../../layout/Hero'
 
 const HandOver = () => {
   const firebase = useContext(FirebaseContext)
@@ -18,7 +21,13 @@ const HandOver = () => {
     }
   }, [firebase.auth, history])
 
-  return <h1>Oddaj rzeczy</h1>
+  return (
+    <>
+      <HeroHandOver />
+      <Contact />
+      <Footer />
+    </>
+  )
 }
 
 export default HandOver
