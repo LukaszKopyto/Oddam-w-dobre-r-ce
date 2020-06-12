@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import SignUpLink from '../SignUpForm/SignUpLink'
 
 const SignInForm = ({ firebase }) => {
-  const [firebaseError, setFirebaseError] = useState(null)
   let history = useHistory()
 
   const INITIAL_STATE = {
@@ -12,16 +11,16 @@ const SignInForm = ({ firebase }) => {
     password: '',
   }
 
-  const onSubmit = (values) => {
+  const onSubmit = (values, { setFieldError }) => {
     const { email, password } = values
-
     firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         history.push('/')
       })
       .catch((error) => {
-        setFirebaseError({ error })
+        setFieldError('email', error.message)
+        setFieldError('password', error.message)
       })
   }
 
@@ -69,9 +68,6 @@ const SignInForm = ({ firebase }) => {
           <button type='submit' className='btn-small' title='Zaloguj się'>
             Zaloguj się
           </button>
-          {firebaseError && (
-            <p className='error__info'>{firebaseError.message}</p>
-          )}
           <SignUpLink />
         </Form>
       </Formik>
