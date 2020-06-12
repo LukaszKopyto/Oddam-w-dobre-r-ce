@@ -4,6 +4,7 @@ import { FirebaseContext } from '../../Firebase'
 import Contact from '../../layout/Contact'
 import Footer from '../../layout/Footer'
 import { HeroHandOver } from '../../layout/Hero'
+import HandOverForm from '../../layout/HandOverForm'
 
 const HandOver = () => {
   const firebase = useContext(FirebaseContext)
@@ -24,6 +25,7 @@ const HandOver = () => {
   return (
     <>
       <HeroHandOver />
+      <HandOverForm />
       <Contact />
       <Footer />
     </>

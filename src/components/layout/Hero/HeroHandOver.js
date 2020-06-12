@@ -1,7 +1,6 @@
 import React from 'react'
 import FormHeroImage from '../../../assets/Form-Hero-Image.jpg'
 import decoration from '../../../assets/Decoration.svg'
-import { Link } from 'react-router-dom'
 import HomeHeader from '../HomeHeader'
 
 const Hero = () => {
