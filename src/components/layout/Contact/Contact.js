@@ -4,38 +4,40 @@ import decoration from '../../../assets/Decoration.svg'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import clx from 'classnames'
 
-const initialValues = {
-  name: '',
-  email: '',
-  message: '',
-}
-
-const validate = (values) => {
-  let errors = {}
-
-  if (!values.name) {
-    errors.name = 'Pole wymagane'
-  } else if (values.name.split(' ').length > 1) {
-    errors.name = 'Podane imię jest niepoprawne'
-  }
-
-  if (!values.email) {
-    errors.email = 'Pole wymagane'
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Niepoprawny adres email'
-  }
-
-  if (!values.message) {
-    errors.message = 'Pole wymagane'
-  } else if (values.message.length < 120) {
-    errors.message = 'Wiadomość musi mieć conajmniej 120 znaków'
-  }
-
-  return errors
-}
-
 const Contact = () => {
   const [submitInfo, setSubmitInfo] = useState(false)
+
+  const initialValues = {
+    name: '',
+    email: '',
+    message: '',
+  }
+
+  const validate = (values) => {
+    let errors = {}
+
+    if (!values.name) {
+      errors.name = 'Pole wymagane'
+    } else if (values.name.split(' ').length > 1) {
+      errors.name = 'Podane imię jest niepoprawne'
+    }
+
+    if (!values.email) {
+      errors.email = 'Pole wymagane'
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = 'Niepoprawny adres email'
+    }
+
+    if (!values.message) {
+      errors.message = 'Pole wymagane'
+    } else if (values.message.length < 120) {
+      errors.message = 'Wiadomość musi mieć conajmniej 120 znaków'
+    }
+
+    return errors
+  }
 
   const onSubmit = (values) => {
     fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {

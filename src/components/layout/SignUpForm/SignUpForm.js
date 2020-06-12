@@ -1,21 +1,20 @@
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
-
-const INITIAL_STATE = {
-  username: '',
-  email: '',
-  passwordOne: '',
-  passwordTwo: '',
-  error: null,
-}
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 const SignUpForm = ({ firebase }) => {
-  const [userData, setUserData] = useState({ ...INITIAL_STATE })
+  const [firebaseError, setFirebaseError] = useState(null)
   let history = useHistory()
 
-  const onSubmit = (e) => {
-    e.preventDefault()
-    const { username, email, passwordOne } = userData
+  const INITIAL_STATE = {
+    username: '',
+    email: '',
+    passwordOne: '',
+    passwordTwo: '',
+  }
+
+  const onSubmit = (values) => {
+    const { username, email, passwordOne } = values
 
     firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne, username)
@@ -30,68 +29,90 @@ const SignUpForm = ({ firebase }) => {
         })
       })
       .then(() => {
-        setUserData({ ...INITIAL_STATE })
         history.push('/')
       })
       .catch((error) => {
-        setUserData({ error })
+        console.log(error)
+        setFirebaseError(error)
       })
   }
 
-  const onChange = (e) => {
-    setUserData({
-      ...userData,
-      [e.target.name]: e.target.value,
-    })
-  }
-  const { username, email, passwordOne, passwordTwo, error } = userData
+  const validate = (values) => {
+    let errors = {}
 
-  const isInvalid =
-    passwordOne !== passwordTwo ||
-    passwordOne === '' ||
-    email === '' ||
-    username === ''
+    const { username, email, passwordOne, passwordTwo } = values
+
+    if (!username) {
+      errors.username = 'Pole wymagane'
+    }
+
+    if (!email) {
+      errors.email = 'Pole wymagane'
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = 'Niepoprawny adres email'
+    }
+
+    if (!passwordOne) {
+      errors.passwordOne = 'Pole wymagane'
+    } else if (passwordOne.length < 6) {
+      errors.passwordOne = 'Hasło musi zawierać conajmniej 6 znaków'
+    }
+
+    if (passwordOne !== passwordTwo) {
+      errors.passwordTwo = 'Wpisane hasła nie pasują do siebie'
+    }
+    return errors
+  }
 
   return (
-    <form onSubmit={onSubmit}>
-      <div className='form-wrapper'>
-        <label htmlFor='username'>Podaj Imię</label>
-        <input
-          name='username'
-          value={username}
-          onChange={onChange}
-          type='text'
-        />
-        <label htmlFor='email'>Adres e-mail</label>
-        <input name='email' value={email} onChange={onChange} type='text' />
-        <label htmlFor='passwordOne'>Hasło</label>
-        <input
-          name='passwordOne'
-          value={passwordOne}
-          onChange={onChange}
-          type='password'
-        />
-        <label htmlFor='passwordTwo'>Potwierdź hasło</label>
-        <input
-          name='passwordTwo'
-          value={passwordTwo}
-          onChange={onChange}
-          type='password'
-        />
-      </div>
-      <button
-        disabled={isInvalid}
-        type='submit'
-        className='btn-small'
-        title='Załóż konto'
-      >
-        Załóż konto
-      </button>
-      {error && <p>{error.message}</p>}
-      <Link to='/logowanie' title='Zaloguj się'>
-        Zaloguj się
-      </Link>
-    </form>
+    <Formik
+      initialValues={INITIAL_STATE}
+      onSubmit={onSubmit}
+      validate={validate}
+    >
+      {({ errors, touched }) => (
+        <Form>
+          <div className='form-wrapper'>
+            <label htmlFor='username'>Podaj Imię</label>
+            <Field name='username' type='text' />
+            <ErrorMessage name='username'>
+              {(msg) => <span className='error__info'>{msg}</span>}
+            </ErrorMessage>
+            <label htmlFor='email'>Adres e-mail</label>
+            <Field name='email' type='text' />
+            <ErrorMessage name='email'>
+              {(msg) => <span className='error__info'>{msg}</span>}
+            </ErrorMessage>
+            <label htmlFor='passwordOne'>Hasło</label>
+            <Field name='passwordOne' type='password' />
+            <ErrorMessage name='passwordOne'>
+              {(msg) => <span className='error__info'>{msg}</span>}
+            </ErrorMessage>
+            <label htmlFor='passwordTwo'>Potwierdź hasło</label>
+            <Field name='passwordTwo' type='password' />
+            <ErrorMessage name='passwordTwo'>
+              {(msg) => <span className='error__info'>{msg}</span>}
+            </ErrorMessage>
+          </div>
+          <button
+            // disabled={isInvalid}
+            type='submit'
+            className='btn-small'
+            title='Załóż konto'
+          >
+            Załóż konto
+          </button>
+          <Link to='/logowanie' title='Zaloguj się'>
+            Zaloguj się
+          </Link>
+          {firebaseError && (
+            <p className='error__info'>{firebaseError.message}</p>
+          )}
+        </Form>
+      )}
+    </Formik>
   )
 }
 
