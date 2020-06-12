@@ -1,63 +1,49 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-
-const INITIAL_STATE = {
-  email: '',
-  password: '',
-  error: null,
-}
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import SignUpLink from '../SignUpForm/SignUpLink'
 
 const SignInForm = ({ firebase }) => {
-  const [userData, setUserData] = useState({ ...INITIAL_STATE })
+  const [firebaseError, setFirebaseError] = useState(null)
   let history = useHistory()
 
-  const { email, password, error } = userData
+  const INITIAL_STATE = {
+    email: '',
+    password: '',
+  }
 
-  const isInvalid = password === '' || email === ''
-
-  const onSubmit = (e) => {
-    e.preventDefault()
+  const onSubmit = (values) => {
+    const { email, password } = values
 
     firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
-        setUserData({ ...INITIAL_STATE })
         history.push('/')
       })
       .catch((error) => {
-        setUserData({ error })
+        setFirebaseError({ error })
       })
-  }
-
-  const onChange = (e) => {
-    setUserData({
-      ...userData,
-      [e.target.name]: e.target.value,
-    })
   }
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input
-          name='email'
-          value={email}
-          onChange={onChange}
-          type='text'
-          placeholder='Adres e-mail'
-        />
-        <input
-          name='password'
-          value={password}
-          onChange={onChange}
-          type='password'
-          placeholder='Hasło'
-        />
-        <button disabled={isInvalid} type='submit'>
-          Zaloguj się
-        </button>
-        {error && <p>{error.message}</p>}
-      </form>
+      <Formik initialValues={INITIAL_STATE} onSubmit={onSubmit}>
+        <Form>
+          <div className='form-wrapper'>
+            <label htmlFor='email'>E-mail</label>
+            <Field name='email' type='text' />
+            <label htmlFor='password'>Hasło</label>
+            <Field name='password' type='password' />
+          </div>
+          <button type='submit' className='btn-small' title='Zaloguj się'>
+            Zaloguj się
+          </button>
+          {firebaseError && (
+            <p className='error__info'>{firebaseError.message}</p>
+          )}
+          <SignUpLink />
+        </Form>
+      </Formik>
     </>
   )
 }

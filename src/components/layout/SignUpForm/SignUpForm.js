@@ -104,9 +104,11 @@ const SignUpForm = ({ firebase }) => {
           >
             Załóż konto
           </button>
-          <Link to='/logowanie' title='Zaloguj się'>
-            Zaloguj się
-          </Link>
+          <p className='form__links'>
+            <Link to='/logowanie' title='Zaloguj się'>
+              Zaloguj się
+            </Link>
+          </p>
           {firebaseError && (
             <p className='error__info'>{firebaseError.message}</p>
           )}

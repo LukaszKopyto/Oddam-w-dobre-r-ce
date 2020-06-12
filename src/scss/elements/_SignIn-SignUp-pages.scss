@@ -1,4 +1,5 @@
-.SignUpPage {
+.SignUpPage,
+.SignInPage {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,11 +14,32 @@
     float: right;
   }
   a {
+    bottom: 72px;
+    position: absolute;
+  }
+}
+.SignUpPage .form__links {
+  text-align: left;
+  margin: 0;
+}
+.SignInPage {
+  & p {
+    bottom: 72px;
+    position: absolute;
+    margin: 0;
+    & a {
+      position: unset;
+      bottom: unset;
+    }
+  }
+}
+.form__links {
+  text-align: center;
+  margin: -60px 0 60px;
+  & a {
     text-decoration: none;
     color: $dark-color;
     font-size: 18px;
-    bottom: 72px;
-    position: absolute;
     &:hover {
       font-weight: 600;
     }
