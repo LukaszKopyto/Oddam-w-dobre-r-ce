@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 const SignUpForm = ({ firebase }) => {
-  const [firebaseError, setFirebaseError] = useState(null)
   let history = useHistory()
 
   const INITIAL_STATE = {
@@ -13,7 +12,7 @@ const SignUpForm = ({ firebase }) => {
     passwordTwo: '',
   }
 
-  const onSubmit = (values) => {
+  const onSubmit = (values, { setFieldError }) => {
     const { username, email, passwordOne } = values
 
     firebase
@@ -32,8 +31,7 @@ const SignUpForm = ({ firebase }) => {
         history.push('/')
       })
       .catch((error) => {
-        console.log(error)
-        setFirebaseError(error)
+        setFieldError('email', error.message)
       })
   }
 
@@ -109,9 +107,6 @@ const SignUpForm = ({ firebase }) => {
               Zaloguj się
             </Link>
           </p>
-          {firebaseError && (
-            <p className='error__info'>{firebaseError.message}</p>
-          )}
         </Form>
       )}
     </Formik>
