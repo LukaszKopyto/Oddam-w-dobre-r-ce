@@ -3,9 +3,10 @@ import { Formik, Form } from 'formik'
 import FormFirstStep from './FormFirstStep'
 import FormSecondStep from './FormSecondStep'
 import FormThirdStep from './FormThirdStep'
+import FormFourthStep from './FormFourthStep'
 
 const HandOverForm = () => {
-  const [step, setStep] = useState(3)
+  const [step, setStep] = useState(4)
 
   const INITIAL_STATE = {
     handOver: {
@@ -46,6 +47,8 @@ const HandOverForm = () => {
         return <FormSecondStep step={step} />
       case 3:
         return <FormThirdStep step={step} />
+      case 4:
+        return <FormFourthStep step={step} />
       default:
         return <FormFirstStep />
     }
