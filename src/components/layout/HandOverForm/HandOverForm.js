@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik, Form } from 'formik'
+import FormFirstStep from './FormFirstStep'
+import FormSecondStep from './FormSecondStep'
 
 const HandOverForm = () => {
+  const [step, setStep] = useState(2)
+
   const INITIAL_STATE = {
     handOver: {
       clothes: '',
@@ -25,7 +29,24 @@ const HandOverForm = () => {
     },
   }
 
-  const handleSubmit = () => {}
+  const handleSubmit = () => {
+    setStep((step) => step + 1)
+  }
+
+  const handleBack = () => {
+    setStep((step) => step - 1)
+  }
+
+  const formSteps = (step) => {
+    switch (step) {
+      case 1:
+        return <FormFirstStep next={handleSubmit} />
+      case 2:
+        return <FormSecondStep next={handleSubmit} step={step} />
+      default:
+        return <FormFirstStep />
+    }
+  }
 
   const validate = () => {}
 
@@ -44,7 +65,7 @@ const HandOverForm = () => {
         onSubmit={handleSubmit}
         validate={validate}
       >
-        <Form></Form>
+        <Form>{formSteps(step)}</Form>
       </Formik>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field, ErrorMessage } from 'formik'
 
-const FormFirstStep = () => {
+const FormFirstStep = ({ click }) => {
   return (
     <>
       <p>Krok 1/4</p>
