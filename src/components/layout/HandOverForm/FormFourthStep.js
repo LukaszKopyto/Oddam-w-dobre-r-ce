@@ -1,9 +1,10 @@
 import React from 'react'
 import { Field } from 'formik'
 
-const FormFourthStep = () => {
+const FormFourthStep = ({ step }) => {
   return (
     <>
+      <p>Krok {step}/4</p>
       <h2>Podaj adres oraz termin odbioru rzecz przez kuriera</h2>
       <div>
         <h3>Adres odbioru:</h3>

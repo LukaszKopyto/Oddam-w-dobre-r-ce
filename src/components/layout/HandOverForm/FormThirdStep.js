@@ -1,9 +1,10 @@
 import React from 'react'
 import { Field } from 'formik'
 
-const FormThirdStep = () => {
+const FormThirdStep = ({ step }) => {
   return (
     <>
+      <p>Krok {step}/4</p>
       <h2>Lokalizacja:</h2>
       <Field as='select' name='localization'>
         <option value=''>- wybierz -</option>

@@ -5,6 +5,7 @@ import FormSecondStep from './FormSecondStep'
 import FormThirdStep from './FormThirdStep'
 import FormFourthStep from './FormFourthStep'
 import StepsButtons from './StepsButtons'
+import FormSummary from './FormSummary'
 
 const HandOverForm = () => {
   const [step, setStep] = useState(1)
@@ -33,7 +34,7 @@ const HandOverForm = () => {
   }
 
   const handleSubmit = () => {
-    console.log('handleSubmit')
+    console.log('zapis do firebase')
   }
 
   const handleNext = () => {
@@ -44,7 +45,7 @@ const HandOverForm = () => {
     setStep((step) => step - 1)
   }
 
-  const formSteps = (step) => {
+  const formSteps = (step, values) => {
     switch (step) {
       case 1:
         return <FormFirstStep />
@@ -54,6 +55,8 @@ const HandOverForm = () => {
         return <FormThirdStep step={step} />
       case 4:
         return <FormFourthStep step={step} />
+      case 5:
+        return <FormSummary />
       default:
         return <FormFirstStep />
     }
@@ -73,12 +76,16 @@ const HandOverForm = () => {
       <Formik
         enableReinitialize
         initialValues={INITIAL_STATE}
-        onSubmit={handleSubmit}
         validate={validate}
       >
         <Form>
           {formSteps(step)}
-          <StepsButtons prev={handleBack} next={handleNext} step={step} />
+          <StepsButtons
+            prev={handleBack}
+            next={handleNext}
+            submit={handleSubmit}
+            step={step}
+          />
         </Form>
       </Formik>
     </div>
