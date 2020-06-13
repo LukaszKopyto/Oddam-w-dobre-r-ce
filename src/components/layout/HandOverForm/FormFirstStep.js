@@ -4,7 +4,7 @@ import { Field, ErrorMessage } from 'formik'
 const FormFirstStep = ({ click }) => {
   return (
     <>
-      <p>Krok 1/4</p>
+      <p className='handOverForm__step'>Krok 1/4</p>
       <h2>Zaznacz co chcesz oddać:</h2>
       <div className='form__check'>
         <Field type='checkbox' name='handOver.clothes' />

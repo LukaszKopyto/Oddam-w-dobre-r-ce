@@ -4,9 +4,9 @@ import { Field } from 'formik'
 const FormThirdStep = ({ step }) => {
   return (
     <>
-      <p>Krok {step}/4</p>
+      <p className='handOverForm__step'>Krok {step}/4</p>
       <h2>Lokalizacja:</h2>
-      <Field as='select' name='localization'>
+      <Field as='select' name='localization' className='handOverForm__select'>
         <option value=''>- wybierz -</option>
         <option value='Poznań'>Poznań</option>
         <option value='Warszawa'>Warszawa</option>
@@ -15,40 +15,64 @@ const FormThirdStep = ({ step }) => {
         <option value='Katowice'>Katowice</option>
       </Field>
       <h3>Komu chcesz pomóc ?</h3>
-      <label htmlFor='whoYouWantToHelp1'>Dzieciom</label>
       <Field
         type='radio'
         name='whoYouWantToHelp'
         value='dzieciom'
         id='whoYouWantToHelp1'
       />
-      <label htmlFor='whoYouWantToHelp2'>Samotnym matkom</label>
+      <label
+        htmlFor='whoYouWantToHelp1'
+        className='form__radio'
+        title='Dzieciom'
+      />
+
       <Field
         type='radio'
         name='whoYouWantToHelp'
         value='samotnym matkom'
         id='whoYouWantToHelp2'
       />
-      <label htmlFor='whoYouWantToHelp3'>Bezdomnym</label>
+      <label
+        htmlFor='whoYouWantToHelp2'
+        className='form__radio'
+        title='Samotnym matkom'
+      />
+
       <Field
         type='radio'
         name='whoYouWantToHelp'
         value='bezdomnym'
         id='whoYouWantToHelp3'
       />
-      <label htmlFor='whoYouWantToHelp4'>Niepełnosprawnym</label>
+      <label
+        htmlFor='whoYouWantToHelp3'
+        className='form__radio'
+        title='Bezdomnym'
+      />
+
       <Field
         type='radio'
         name='whoYouWantToHelp'
         value='niepełnosprawnym'
         id='whoYouWantToHelp4'
       />
-      <label htmlFor='whoYouWantToHelp5'>Osobom starszym</label>
+      <label
+        htmlFor='whoYouWantToHelp4'
+        className='form__radio'
+        title='Niepełnosprawnym'
+      />
+
       <Field
         type='radio'
         name='whoYouWantToHelp'
         value='osobom starszym'
         id='whoYouWantToHelp5'
+      />
+      <label
+        htmlFor='whoYouWantToHelp5'
+        className='form__radio'
+        title='Osobom starszym'
       />
       <h3>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h3>
       <Field name='organization' />

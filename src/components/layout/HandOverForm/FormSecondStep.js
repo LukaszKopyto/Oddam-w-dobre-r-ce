@@ -4,10 +4,11 @@ import { Field, ErrorMessage } from 'formik'
 const FormFirstStep = ({ step }) => {
   return (
     <>
-      <p>Krok {step}/4</p>
+      <p className='handOverForm__step'>Krok {step}/4</p>
       <h2>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h2>
       <div className='form__check'>
-        <Field as='select' name='numbersOfBag'>
+        <label htmlFor='numbersOfBag'>Liczba 60l worków: </label>
+        <Field as='select' name='numbersOfBag' className='handOverForm__select'>
           <option value=''>- wybierz -</option>
           <option value='1'>1</option>
           <option value='2'>2</option>
@@ -15,7 +16,6 @@ const FormFirstStep = ({ step }) => {
           <option value='4'>4</option>
           <option value='5'>5</option>
         </Field>
-        <label htmlFor='numbersOfBag'>Liczba 60l worków </label>
         <ErrorMessage name='numbersOfBag' />
       </div>
     </>

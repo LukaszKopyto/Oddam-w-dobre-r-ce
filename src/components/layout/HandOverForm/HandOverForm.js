@@ -6,6 +6,7 @@ import FormThirdStep from './FormThirdStep'
 import FormFourthStep from './FormFourthStep'
 import StepsButtons from './StepsButtons'
 import FormSummary from './FormSummary'
+import backgroundForm from '../../../assets/Background-Form.jpg'
 
 const HandOverForm = () => {
   const [step, setStep] = useState(1)
@@ -73,21 +74,28 @@ const HandOverForm = () => {
           jak poprawnie spakować rzeczy znajdziesz TUTAJ.
         </p>
       </header>
-      <Formik
-        enableReinitialize
-        initialValues={INITIAL_STATE}
-        validate={validate}
+      <section
+        className='handOverForm__wrapper'
+        style={{ backgroundImage: `url(${backgroundForm})` }}
       >
-        <Form>
-          {formSteps(step)}
-          <StepsButtons
-            prev={handleBack}
-            next={handleNext}
-            submit={handleSubmit}
-            step={step}
-          />
-        </Form>
-      </Formik>
+        <div className='handOverForm__main'>
+          <Formik
+            enableReinitialize
+            initialValues={INITIAL_STATE}
+            validate={validate}
+          >
+            <Form>
+              {formSteps(step)}
+              <StepsButtons
+                prev={handleBack}
+                next={handleNext}
+                submit={handleSubmit}
+                step={step}
+              />
+            </Form>
+          </Formik>
+        </div>
+      </section>
     </div>
   )
 }
