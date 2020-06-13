@@ -4,9 +4,10 @@ import FormFirstStep from './FormFirstStep'
 import FormSecondStep from './FormSecondStep'
 import FormThirdStep from './FormThirdStep'
 import FormFourthStep from './FormFourthStep'
+import StepsButtons from './StepsButtons'
 
 const HandOverForm = () => {
-  const [step, setStep] = useState(4)
+  const [step, setStep] = useState(1)
 
   const INITIAL_STATE = {
     handOver: {
@@ -32,6 +33,10 @@ const HandOverForm = () => {
   }
 
   const handleSubmit = () => {
+    console.log('handleSubmit')
+  }
+
+  const handleNext = () => {
     setStep((step) => step + 1)
   }
 
@@ -71,7 +76,10 @@ const HandOverForm = () => {
         onSubmit={handleSubmit}
         validate={validate}
       >
-        <Form>{formSteps(step)}</Form>
+        <Form>
+          {formSteps(step)}
+          <StepsButtons prev={handleBack} next={handleNext} step={step} />
+        </Form>
       </Formik>
     </div>
   )
