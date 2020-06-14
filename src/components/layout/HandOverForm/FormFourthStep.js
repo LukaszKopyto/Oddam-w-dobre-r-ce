@@ -23,18 +23,18 @@ const FormFourthStep = ({ step }) => {
           </div>
           <div>
             <label htmlFor='address.phone'>Numer telefonu</label>
-            <Field name='address.phone' />
+            <Field name='address.phone' type='tel' />
           </div>
         </div>
         <div className='handOverForm__address'>
           <h3>Termin odbioru:</h3>
           <div>
             <label htmlFor='address.date'>Data</label>
-            <Field name='address.date' />
+            <Field name='address.date' type='date' />
           </div>
           <div>
             <label htmlFor='address.time'>Godzina</label>
-            <Field name='address.time' />
+            <Field name='address.time' type='time' />
           </div>
           <div>
             <label htmlFor='address.comments'>Uwagi do kuriera</label>

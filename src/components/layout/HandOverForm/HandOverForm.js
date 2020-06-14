@@ -12,13 +12,7 @@ const HandOverForm = () => {
   const [step, setStep] = useState(1)
 
   const INITIAL_STATE = {
-    handOver: {
-      clothes: '',
-      clothesToThrowAway: '',
-      toys: '',
-      books: '',
-      other: '',
-    },
+    handOver: '',
     numbersOfBag: '',
     localization: '',
     whoYouWantToHelp: '',
@@ -46,7 +40,7 @@ const HandOverForm = () => {
     setStep((step) => step - 1)
   }
 
-  const formSteps = (step, values) => {
+  const formSteps = (step) => {
     switch (step) {
       case 1:
         return <FormFirstStep />

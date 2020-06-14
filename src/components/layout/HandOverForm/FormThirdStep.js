@@ -15,65 +15,52 @@ const FormThirdStep = ({ step }) => {
         <option value='Katowice'>Katowice</option>
       </Field>
       <h3>Komu chcesz pomóc ?</h3>
-      <Field
-        type='radio'
-        name='whoYouWantToHelp'
-        value='dzieciom'
-        id='whoYouWantToHelp1'
-      />
-      <label
-        htmlFor='whoYouWantToHelp1'
-        className='form__radio'
-        title='Dzieciom'
-      />
+      <div className='form__check'>
+        <Field
+          type='checkbox'
+          name='whoYouWantToHelp'
+          id='whoYouWantToHelp1'
+          value='dzieciom'
+        />
+        <label htmlFor='whoYouWantToHelp1' title='dzieciom' />
+      </div>
+      <div className='form__check'>
+        <Field
+          type='checkbox'
+          name='whoYouWantToHelp'
+          value='samotnym matkom'
+          id='whoYouWantToHelp2'
+        />
+        <label htmlFor='whoYouWantToHelp2' title='samotnym matkom' />
+      </div>
+      <div className='form__check'>
+        <Field
+          type='checkbox'
+          name='whoYouWantToHelp'
+          value='bezdomnym'
+          id='whoYouWantToHelp3'
+        />
+        <label htmlFor='whoYouWantToHelp3' title='bezdomnym' />
+      </div>
+      <div className='form__check'>
+        <Field
+          type='checkbox'
+          name='whoYouWantToHelp'
+          value='niepełnosprawnym'
+          id='whoYouWantToHelp4'
+        />
+        <label htmlFor='whoYouWantToHelp4' title='niepełnosprawnym' />
+      </div>
+      <div className='form__check'>
+        <Field
+          type='checkbox'
+          name='whoYouWantToHelp'
+          value='osobom starszym'
+          id='whoYouWantToHelp5'
+        />
+        <label htmlFor='whoYouWantToHelp5' title='osobom starszym' />
+      </div>
 
-      <Field
-        type='radio'
-        name='whoYouWantToHelp'
-        value='samotnym matkom'
-        id='whoYouWantToHelp2'
-      />
-      <label
-        htmlFor='whoYouWantToHelp2'
-        className='form__radio'
-        title='Samotnym matkom'
-      />
-
-      <Field
-        type='radio'
-        name='whoYouWantToHelp'
-        value='bezdomnym'
-        id='whoYouWantToHelp3'
-      />
-      <label
-        htmlFor='whoYouWantToHelp3'
-        className='form__radio'
-        title='Bezdomnym'
-      />
-
-      <Field
-        type='radio'
-        name='whoYouWantToHelp'
-        value='niepełnosprawnym'
-        id='whoYouWantToHelp4'
-      />
-      <label
-        htmlFor='whoYouWantToHelp4'
-        className='form__radio'
-        title='Niepełnosprawnym'
-      />
-
-      <Field
-        type='radio'
-        name='whoYouWantToHelp'
-        value='osobom starszym'
-        id='whoYouWantToHelp5'
-      />
-      <label
-        htmlFor='whoYouWantToHelp5'
-        className='form__radio'
-        title='Osobom starszym'
-      />
       <h3>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h3>
       <Field name='organization' />
     </>

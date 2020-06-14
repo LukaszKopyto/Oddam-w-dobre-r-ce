@@ -6,7 +6,7 @@ const FormFirstStep = ({ step }) => {
     <>
       <p className='handOverForm__step'>Krok {step}/4</p>
       <h2>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h2>
-      <div className='form__check'>
+      <div className='form__select'>
         <label htmlFor='numbersOfBag'>Liczba 60l worków: </label>
         <Field as='select' name='numbersOfBag' className='handOverForm__select'>
           <option value=''>- wybierz -</option>

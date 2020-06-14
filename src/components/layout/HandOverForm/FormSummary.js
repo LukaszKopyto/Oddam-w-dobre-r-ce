@@ -8,15 +8,11 @@ const FormSummary = () => {
 
   const {
     numbersOfBag,
+    handOver,
     whoYouWantToHelp,
     localization,
     address: { street, city, postalCod, phone, date, time, comments },
   } = formValues
-
-  const handOver = () => {
-    const arr = Object.values(formValues.handOver)
-    return arr.map((item) => item.length > 1 && ` ${item},`)
-  }
 
   return (
     <>
@@ -24,10 +20,7 @@ const FormSummary = () => {
       <h3>Oddajesz:</h3>
       <p className='handOverForm__info'>
         <img src={icon1} alt='' />
-        {numbersOfBag} worki,
-        {handOver()}
-        {whoYouWantToHelp}
-        {whoYouWantToHelp}
+        {numbersOfBag} worki, {handOver}, {whoYouWantToHelp}
       </p>
       <p className='handOverForm__info'>
         <img src={icon4} alt='' />
