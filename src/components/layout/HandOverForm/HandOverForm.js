@@ -63,17 +63,31 @@ const HandOverForm = () => {
     }
   }
 
+  const importantInfo = (step) => {
+    switch (step) {
+      case 1:
+        return 'Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać.'
+      case 2:
+        return 'Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną instrukcję jak poprawnie spakować rzeczy znajdziesz TUTAJ.'
+      case 3:
+        return 'Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w wyszukiwarce. Możesz też filtrować organizacje po ich lokalizacji bądź celu ich pomocy.'
+      case 4:
+        return 'Podaj adres oraz termin odbioru rzeczy.'
+      default:
+        return 'Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać.'
+    }
+  }
+
   const validate = () => {}
 
   return (
     <div className='handOverForm'>
-      <header>
-        <h2>Ważne!</h2>
-        <p>
-          Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną instrukcję
-          jak poprawnie spakować rzeczy znajdziesz TUTAJ.
-        </p>
-      </header>
+      {step < 5 && (
+        <header>
+          <h2>Ważne!</h2>
+          <p>{importantInfo(step)}</p>
+        </header>
+      )}
       <section
         className='handOverForm__wrapper'
         style={{ backgroundImage: `url(${backgroundForm})` }}
