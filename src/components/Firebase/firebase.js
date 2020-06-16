@@ -41,6 +41,9 @@ class Firebase {
   users = () => this.db.ref('users')
 
   whoWeHelp = () => this.db.ref('whoWeHelp')
+
+  setUserFormData = (uid, values) =>
+    this.db.ref(`users/${uid}/formData`).set({ ...values })
 }
 
 export default Firebase

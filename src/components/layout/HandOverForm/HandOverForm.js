@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Formik, Form } from 'formik'
 import FormFirstStep from './FormFirstStep'
 import FormSecondStep from './FormSecondStep'
@@ -7,9 +7,13 @@ import FormFourthStep from './FormFourthStep'
 import StepsButtons from './StepsButtons'
 import FormSummary from './FormSummary'
 import backgroundForm from '../../../assets/Background-Form.jpg'
+import { AuthUserContext } from '../Session'
+import { FirebaseContext } from '../../Firebase'
+import ThankYouMessage from './ThankYouMessage'
 
 const HandOverForm = () => {
   const [step, setStep] = useState(1)
+  const [successMessage, setSuccessMessage] = useState(false)
 
   const INITIAL_STATE = {
     handOver: '',
@@ -27,9 +31,18 @@ const HandOverForm = () => {
       comments: '',
     },
   }
+  let authUser = useContext(AuthUserContext)
+  let firebase = useContext(FirebaseContext)
+  let uid = null
+  if (authUser) {
+    uid = authUser.uid
+  }
 
-  const handleSubmit = () => {
-    console.log('zapis do firebase')
+  const handleSubmit = (values, resetForm) => {
+    firebase.setUserFormData(uid, values)
+    console.log('Success')
+    setSuccessMessage(true)
+    resetForm({})
   }
 
   const handleNext = () => {
@@ -72,8 +85,6 @@ const HandOverForm = () => {
     }
   }
 
-  const validate = () => {}
-
   return (
     <div className='handOverForm'>
       {step < 5 && (
@@ -87,21 +98,23 @@ const HandOverForm = () => {
         style={{ backgroundImage: `url(${backgroundForm})` }}
       >
         <div className='handOverForm__main'>
-          <Formik
-            enableReinitialize
-            initialValues={INITIAL_STATE}
-            validate={validate}
-          >
-            <Form>
-              {formSteps(step)}
-              <StepsButtons
-                prev={handleBack}
-                next={handleNext}
-                submit={handleSubmit}
-                step={step}
-              />
-            </Form>
-          </Formik>
+          {successMessage ? (
+            <ThankYouMessage />
+          ) : (
+            <Formik enableReinitialize initialValues={INITIAL_STATE}>
+              {({ values, resetForm }) => (
+                <Form>
+                  {formSteps(step)}
+                  <StepsButtons
+                    prev={handleBack}
+                    next={handleNext}
+                    submit={() => handleSubmit(values, resetForm)}
+                    step={step}
+                  />
+                </Form>
+              )}
+            </Formik>
+          )}
         </div>
       </section>
     </div>
