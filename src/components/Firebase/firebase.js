@@ -42,8 +42,23 @@ class Firebase {
 
   whoWeHelp = () => this.db.ref('whoWeHelp')
 
+  summaryOfTheForm = () => this.db.ref('summaryOfTheForm')
+
   setUserFormData = (uid, values) =>
     this.db.ref(`users/${uid}/formData`).set({ ...values })
+
+  setSummaryOfTheForm = (numberOfBag, numberOfOrganisations) => {
+    numberOfBag = parseInt(numberOfBag)
+    this.db.ref(`summaryOfTheForm`).once('value', (snapshot) => {
+      const prevValue = snapshot.val()
+      this.db.ref(`summaryOfTheForm`).set({
+        numberOfBag: prevValue.numberOfBag + numberOfBag,
+        numberOfOrganisations:
+          prevValue.numberOfOrganisations + numberOfOrganisations,
+        numberOfPeople: prevValue.numberOfPeople + 1,
+      })
+    })
+  }
 }
 
 export default Firebase

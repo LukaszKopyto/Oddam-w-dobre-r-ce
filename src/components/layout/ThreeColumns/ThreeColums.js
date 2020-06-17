@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { FirebaseContext } from '../../Firebase'
 import Background from '../../../assets/3ColumnsBackground.png'
 
 const ThreeColums = () => {
+  let firebase = useContext(FirebaseContext)
+  const [summaryInfo, setSummaryInfo] = useState(null)
+
+  useEffect(() => {
+    firebase.summaryOfTheForm().on('value', (snapshot) => {
+      let summary = snapshot.val()
+      setSummaryInfo(summary)
+    })
+    return () => {
+      firebase.summaryOfTheForm().off()
+    }
+  }, [firebase])
+
   return (
     <section
       className='threeColumns'
@@ -9,7 +23,7 @@ const ThreeColums = () => {
       style={{ backgroundImage: `url(${Background})` }}
     >
       <div className='threeColumns__box'>
-        <span>10</span>
+        <span>{summaryInfo ? summaryInfo.numberOfBag : 0}</span>
         <h2>oddanych worków</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel enim
@@ -17,7 +31,7 @@ const ThreeColums = () => {
         </p>
       </div>
       <div className='threeColumns__box'>
-        <span>5</span>
+        <span>{summaryInfo ? summaryInfo.numberOfOrganisations : 0}</span>
         <h2>wspartych organizacji</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel enim
@@ -25,7 +39,7 @@ const ThreeColums = () => {
         </p>
       </div>
       <div className='threeColumns__box'>
-        <span>7</span>
+        <span>{summaryInfo ? summaryInfo.numberOfPeople : 0}</span>
         <h2>zorganizowanych zbiórek</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel enim

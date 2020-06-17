@@ -40,7 +40,10 @@ const HandOverForm = () => {
 
   const handleSubmit = (values, resetForm) => {
     firebase.setUserFormData(uid, values)
-    console.log('Success')
+    firebase.setSummaryOfTheForm(
+      values.numbersOfBag,
+      values.whoYouWantToHelp.length
+    )
     setSuccessMessage(true)
     resetForm({})
   }

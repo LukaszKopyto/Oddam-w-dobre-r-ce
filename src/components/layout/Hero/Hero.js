@@ -19,9 +19,6 @@ const Hero = () => {
           <Link to='/oddaj-rzecz' className='btn-primary'>
             ODDAJ RZECZY
           </Link>
-          <Link to='/oddaj-rzecz' className='btn-primary'>
-            ZORGANIZUJ ZBIÓRKĘ
-          </Link>
         </div>
       </div>
     </section>

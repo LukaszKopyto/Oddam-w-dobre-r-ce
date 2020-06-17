@@ -20,7 +20,7 @@ const FormSummary = () => {
       <h3>Oddajesz:</h3>
       <p className='handOverForm__info'>
         <img src={icon1} alt='' />
-        {numbersOfBag} worki, {handOver}, {whoYouWantToHelp}
+        {numbersOfBag} worki, {handOver}, {whoYouWantToHelp.join(', ')}
       </p>
       <p className='handOverForm__info'>
         <img src={icon4} alt='' />
