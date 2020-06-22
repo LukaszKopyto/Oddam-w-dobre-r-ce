@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StepsButtons = ({ prev, next, submit, step }) => {
+const StepsButtons = ({ prev, step, isSubmitting }) => {
   return (
     <>
       {step !== 1 && (
@@ -13,25 +13,14 @@ const StepsButtons = ({ prev, next, submit, step }) => {
           Wstecz
         </button>
       )}
-      {step === 5 ? (
-        <button
-          type='button'
-          onClick={submit}
-          className='btn-small'
-          title='Potwierdzam'
-        >
-          Potwierdzam
-        </button>
-      ) : (
-        <button
-          type='button'
-          onClick={next}
-          className='btn-small'
-          title='Dalej'
-        >
-          Dalej
-        </button>
-      )}
+      <button
+        type='submit'
+        className='btn-small'
+        title={step === 5 ? 'Potwierdzam' : 'Dalej'}
+        disabled={isSubmitting}
+      >
+        {step === 5 ? 'Potwierdzam' : 'Dalej'}
+      </button>
     </>
   )
 }

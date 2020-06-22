@@ -16,8 +16,10 @@ const FormFirstStep = ({ step }) => {
           <option value='4'>4</option>
           <option value='5'>5</option>
         </Field>
-        <ErrorMessage name='numbersOfBag' />
       </div>
+      <ErrorMessage name='numbersOfBag'>
+        {(msg) => <div className='error__info'>{msg}</div>}
+      </ErrorMessage>
     </>
   )
 }

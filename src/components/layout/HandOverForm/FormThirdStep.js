@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field } from 'formik'
+import { Field, ErrorMessage } from 'formik'
 
 const FormThirdStep = ({ step }) => {
   return (
@@ -60,6 +60,9 @@ const FormThirdStep = ({ step }) => {
         />
         <label htmlFor='whoYouWantToHelp5' title='osobom starszym' />
       </div>
+      <ErrorMessage name='whoYouWantToHelp'>
+        {(msg) => <div className='error__info'>{msg}</div>}
+      </ErrorMessage>
 
       <h3>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h3>
       <Field name='organization' />

@@ -1,10 +1,10 @@
 import React from 'react'
-import { Field } from 'formik'
+import { Field, ErrorMessage } from 'formik'
 
-const FormFirstStep = ({ click }) => {
+const FormFirstStep = ({ step }) => {
   return (
     <>
-      <p className='handOverForm__step'>Krok 1/4</p>
+      <p className='handOverForm__step'>Krok {step}/4</p>
       <h2>Zaznacz co chcesz oddać:</h2>
       <Field
         type='radio'
@@ -36,6 +36,9 @@ const FormFirstStep = ({ click }) => {
       <label htmlFor='other' className='form__radio'>
         inne
       </label>
+      <ErrorMessage name='handOver'>
+        {(msg) => <div className='error__info'>{msg}</div>}
+      </ErrorMessage>
     </>
   )
 }
