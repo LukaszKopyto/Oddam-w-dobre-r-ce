@@ -61,7 +61,13 @@ const HandOverForm = () => {
 
   const validate = (values) => {
     let errors = {}
-    if (step === 4)
+    if (
+      step === 4 &&
+      (!values.address.postalCod ||
+        !values.address.phone ||
+        !values.address.city ||
+        !values.address.street)
+    )
       errors = {
         address: {},
       }
