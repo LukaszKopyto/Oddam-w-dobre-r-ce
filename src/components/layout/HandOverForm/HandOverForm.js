@@ -61,10 +61,13 @@ const HandOverForm = () => {
 
   const validate = (values) => {
     let errors = {}
-    if (step === 4) {
+    if (step === 4)
       errors = {
         address: {},
       }
+
+    if (!values.handOver) {
+      console.log(values.handOver, step)
     }
 
     if (!values.handOver && step === 1) {
@@ -95,8 +98,6 @@ const HandOverForm = () => {
       step === 4
     ) {
       errors.address.phone = 'Nieprawidłowy numer telefonu'
-    } else {
-      errors = {}
     }
 
     return errors
