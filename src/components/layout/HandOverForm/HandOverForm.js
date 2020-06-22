@@ -66,10 +66,6 @@ const HandOverForm = () => {
         address: {},
       }
 
-    if (!values.handOver) {
-      console.log(values.handOver, step)
-    }
-
     if (!values.handOver && step === 1) {
       errors.handOver = 'Wybierz co chcesz oddać'
     }
@@ -84,13 +80,23 @@ const HandOverForm = () => {
 
     if (!values.address.street && step === 4) {
       errors.address.street = 'Pole wymagane'
-    } else if (!values.address.city && step === 4) {
+    }
+
+    if (!values.address.city && step === 4) {
       errors.address.city = 'Pole wymagane'
+    }
+
+    if (!values.address.postalCod && step === 4) {
+      errors.address.postalCod = 'Pole wymagane'
     } else if (
       !/^[0-9]{2}[-\s]*?[0-9]{3}$/i.test(values.address.postalCod) &&
       step === 4
     ) {
-      errors.address.postalCod = 'Nieprawidłowy numer kod pocztowy'
+      errors.address.postalCod = 'Nieprawidłowy kod pocztowy'
+    }
+
+    if (!values.address.phone && step === 4) {
+      errors.address.phone = 'Pole wymagane'
     } else if (
       !/(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)/i.test(
         values.address.phone
