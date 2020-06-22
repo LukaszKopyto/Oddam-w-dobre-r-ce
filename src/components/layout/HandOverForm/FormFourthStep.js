@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field } from 'formik'
+import { Field, ErrorMessage } from 'formik'
 
 const FormFourthStep = ({ step }) => {
   return (
@@ -13,18 +13,30 @@ const FormFourthStep = ({ step }) => {
             <label htmlFor='address.street'>Ulica</label>
             <Field name='address.street' />
           </div>
+          <ErrorMessage name='address.street'>
+            {(msg) => <div className='error__info'>{msg}</div>}
+          </ErrorMessage>
           <div>
             <label htmlFor='address.city'>Miasto</label>
             <Field name='address.city' />
           </div>
+          <ErrorMessage name='address.city'>
+            {(msg) => <div className='error__info'>{msg}</div>}
+          </ErrorMessage>
           <div>
             <label htmlFor='address.postalCod'>Kod pocztowy</label>
             <Field name='address.postalCod' />
           </div>
+          <ErrorMessage name='address.postalCod'>
+            {(msg) => <div className='error__info'>{msg}</div>}
+          </ErrorMessage>
           <div>
             <label htmlFor='address.phone'>Numer telefonu</label>
             <Field name='address.phone' type='tel' />
           </div>
+          <ErrorMessage name='address.phone'>
+            {(msg) => <div className='error__info'>{msg}</div>}
+          </ErrorMessage>
         </div>
         <div className='handOverForm__address'>
           <h3>Termin odbioru:</h3>

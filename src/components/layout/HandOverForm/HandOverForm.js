@@ -60,7 +60,12 @@ const HandOverForm = () => {
   }
 
   const validate = (values) => {
-    const errors = {}
+    let errors = {}
+    if (step === 4) {
+      errors = {
+        address: {},
+      }
+    }
 
     if (!values.handOver && step === 1) {
       errors.handOver = 'Wybierz co chcesz oddać'
@@ -72,6 +77,26 @@ const HandOverForm = () => {
 
     if (!values.whoYouWantToHelp && step === 3) {
       errors.whoYouWantToHelp = 'Zaznacz komu chcesz pomóc'
+    }
+
+    if (!values.address.street && step === 4) {
+      errors.address.street = 'Pole wymagane'
+    } else if (!values.address.city && step === 4) {
+      errors.address.city = 'Pole wymagane'
+    } else if (
+      !/^[0-9]{2}[-\s]*?[0-9]{3}$/i.test(values.address.postalCod) &&
+      step === 4
+    ) {
+      errors.address.postalCod = 'Nieprawidłowy numer kod pocztowy'
+    } else if (
+      !/(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)/i.test(
+        values.address.phone
+      ) &&
+      step === 4
+    ) {
+      errors.address.phone = 'Nieprawidłowy numer telefonu'
+    } else {
+      errors = {}
     }
 
     return errors
