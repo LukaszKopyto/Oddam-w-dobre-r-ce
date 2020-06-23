@@ -26,7 +26,7 @@ const WhoWeHelp = () => {
   }
 
   return (
-    <div className='help' name='help'>
+    <div className='help' id='help' name='help'>
       <h2>Komu pomagamy?</h2>
       <img src={decoration} alt='' />
       <div className='help__nav'>

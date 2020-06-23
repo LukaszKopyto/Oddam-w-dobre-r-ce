@@ -5,7 +5,7 @@ import people from '../../../assets/People.jpg'
 
 const AboutUs = () => {
   return (
-    <div className='about' name='aboutUs'>
+    <div className='about' id='about' name='aboutUs'>
       <div className='about__box'>
         <div className='about__box-container'>
           <h2>O nas</h2>

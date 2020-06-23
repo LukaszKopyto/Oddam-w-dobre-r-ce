@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { AuthUserContext } from '../Session'
+import { AuthUserContext } from '../../Session'
 import TopMenuAuth from './TopMenuAuth'
 import TopMenuNoAuth from './TopMenuNoAuth'
 

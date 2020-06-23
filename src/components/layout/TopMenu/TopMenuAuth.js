@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import SignOutButton from '../SignOutButton/SignOutButton'
-import { AuthUserContext } from '../Session'
+import { AuthUserContext } from '../../Session'
 
 const TopMenu = () => {
   let authUser = useContext(AuthUserContext)
