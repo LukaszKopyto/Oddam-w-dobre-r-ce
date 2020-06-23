@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-scroll'
 import { Link as RouterLink } from 'react-router-dom'
 
 const MainMenu = () => {
@@ -9,42 +8,22 @@ const MainMenu = () => {
         <RouterLink to='/' className='mainMenu__nav--item' title='Start'>
           Start
         </RouterLink>
-        <Link
-          to='info'
-          smooth={'easeInQuint'}
-          duration={1200}
-          className='mainMenu__nav--item'
-          title='O co chodzi ?'
-        >
+        <a href='/#info' className='mainMenu__nav--item' title='O co chodzi ?'>
           O co chodzi ?
-        </Link>
-        <Link
-          to='aboutUs'
-          smooth={'easeInQuint'}
-          duration={1200}
-          className='mainMenu__nav--item'
-          title='O nas'
-        >
+        </a>
+        <a href='/#aboutUs' className='mainMenu__nav--item' title='O nas'>
           O nas
-        </Link>
-        <Link
-          to='help'
-          smooth={'easeInQuint'}
-          duration={1200}
+        </a>
+        <a
+          href='/#help'
           className='mainMenu__nav--item'
           title='Fundacja i organizacje'
         >
           Fundacja i organizacje
-        </Link>
-        <Link
-          to='contact'
-          className='mainMenu__nav--item'
-          smooth={'easeInQuint'}
-          duration={1200}
-          title='Kontakt'
-        >
+        </a>
+        <a href='/#contact' className='mainMenu__nav--item' title='Kontakt'>
           Kontakt
-        </Link>
+        </a>
       </nav>
     </section>
   )

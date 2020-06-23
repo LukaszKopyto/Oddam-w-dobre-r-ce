@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 const Info = () => {
   return (
-    <section className='info' name='info'>
+    <section className='info' id='info' name='info'>
       <p className='info__title'>Wystarczą 4 proste kroki</p>
       <img src={decoration} alt='' />
       <div className='info__fourSteps'>

@@ -19,6 +19,7 @@ const ThreeColums = () => {
   return (
     <section
       className='threeColumns'
+      id='threeColumns'
       name='threeColums'
       style={{ backgroundImage: `url(${Background})` }}
     >
