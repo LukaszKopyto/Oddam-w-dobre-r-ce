@@ -6,7 +6,6 @@ import { MainMenuHomePage } from '../MainMenu'
 
 const HomeHeader = () => {
   let location = useLocation()
-  console.log(location)
 
   return (
     <div className='homeHeader'>
