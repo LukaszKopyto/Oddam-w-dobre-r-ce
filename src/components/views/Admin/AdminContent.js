@@ -46,10 +46,10 @@ const AdminContent = () => {
         {users.map(
           (user) =>
             user.formData && (
-              <>
+              <div key={user.uid}>
                 <h3>{user.username}</h3>
                 <h3>{user.email}</h3>
-                <ul key={user.uid}>
+                <ul>
                   <li>
                     Do oddania:
                     {user.formData.handOver}, {user.formData.numbersOfBag}{' '}
@@ -73,7 +73,7 @@ const AdminContent = () => {
                     </ul>
                   </li>
                 </ul>
-              </>
+              </div>
             )
         )}
       </section>
