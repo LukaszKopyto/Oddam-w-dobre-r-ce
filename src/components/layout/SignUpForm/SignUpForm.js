@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as ROLES from '../../../constants/roles'
 
 const SignUpForm = ({ firebase }) => {
   let history = useHistory()
@@ -10,10 +11,17 @@ const SignUpForm = ({ firebase }) => {
     email: '',
     passwordOne: '',
     passwordTwo: '',
+    isAdmin: false,
   }
 
+  const roles = {}
+
   const onSubmit = (values, { setFieldError }) => {
-    const { username, email, passwordOne } = values
+    const { username, email, passwordOne, isAdmin } = values
+
+    if (isAdmin) {
+      roles[ROLES.ADMIN] = ROLES.ADMIN
+    }
 
     firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne, username)
@@ -25,6 +33,7 @@ const SignUpForm = ({ firebase }) => {
         return firebase.user(authUser.user.uid).set({
           username,
           email,
+          roles,
         })
       })
       .then(() => {
@@ -70,7 +79,7 @@ const SignUpForm = ({ firebase }) => {
       onSubmit={onSubmit}
       validate={validate}
     >
-      {({ errors, touched }) => (
+      {({ values }) => (
         <Form>
           <div className='form-wrapper'>
             <label htmlFor='username'>Podaj Imię</label>
@@ -93,13 +102,20 @@ const SignUpForm = ({ firebase }) => {
             <ErrorMessage name='passwordTwo'>
               {(msg) => <span className='error__info'>{msg}</span>}
             </ErrorMessage>
+            <div className='form__check'>
+              <Field
+                type='checkbox'
+                name='isAdmin'
+                id='isAdmin'
+                checked={values.isAdmin}
+              />
+              <label
+                htmlFor='isAdmin'
+                title='załóż konto z uprawnieniami admina'
+              />
+            </div>
           </div>
-          <button
-            // disabled={isInvalid}
-            type='submit'
-            className='btn-small'
-            title='Załóż konto'
-          >
+          <button type='submit' className='btn-small' title='Załóż konto'>
             Załóż konto
           </button>
           <p className='form__links'>
