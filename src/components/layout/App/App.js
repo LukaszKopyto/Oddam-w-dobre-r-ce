@@ -17,13 +17,33 @@ function App() {
 
   useEffect(() => {
     let listener = firebase.auth.onAuthStateChanged((authUser) => {
-      authUser ? setUser(authUser) : setUser(null)
+      if (authUser) {
+        firebase
+          .user(authUser.uid)
+          .once('value')
+          .then((snapshot) => {
+            const dbUser = snapshot.val()
+
+            if (!dbUser.roles) {
+              dbUser.roles = {}
+            }
+
+            authUser = {
+              uid: authUser.uid,
+              email: authUser.email,
+              ...dbUser,
+            }
+            setUser(authUser)
+          })
+      } else {
+        setUser(null)
+      }
     })
 
     return () => {
       listener()
     }
-  }, [firebase.auth])
+  }, [firebase])
 
   return (
     <AuthUserContext.Provider value={user}>

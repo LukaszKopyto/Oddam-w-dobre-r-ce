@@ -18,24 +18,10 @@ const Admin = () => {
           .once('value')
           .then((snapshot) => {
             const dbUser = snapshot.val()
-
-            if (!dbUser.roles) {
-              dbUser.roles = {}
-            }
-
-            authUser = {
-              uid: authUser.uid,
-              email: authUser.email,
-              username: dbUser.username,
-              ...dbUser,
-            }
-
-            if (!authUser.roles[ROLES.ADMIN]) {
+            if (!dbUser.roles || !dbUser.roles[ROLES.ADMIN]) {
               history.push('/logowanie')
             }
           })
-      } else {
-        history.push('/logowanie')
       }
     })
     return () => {
@@ -45,7 +31,7 @@ const Admin = () => {
 
   return (
     <AuthUserContext.Consumer>
-      {(authUser) => (authUser ? <AdminContent /> : null)}
+      {(authUser) => (authUser ? <AdminContent /> : 'Loading...')}
     </AuthUserContext.Consumer>
   )
 }
