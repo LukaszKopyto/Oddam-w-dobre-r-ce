@@ -28,51 +28,79 @@ const AdminContent = () => {
   return (
     <>
       <HomeHeader />
-      <section>
+      <section className='admin__container'>
         <h1>Admin</h1>
         <p>Tylko użytkownicy z rolą administratora są upoważnieni.</p>
         {loading && <p>Loading...</p>}
         <h2>Lista użytkowników: </h2>
+        <div className='admin__table-header'>
+          <div>
+            <strong>Imię</strong>
+          </div>
+          <div>
+            <strong>e-mail</strong>
+          </div>
+          <div>
+            <strong>Zbiórka</strong>
+          </div>
+          <div>
+            <strong>Uprawnienia admina:</strong>
+          </div>
+        </div>
         {users.map((user) => (
-          <ul key={user.uid}>
-            <li>
-              <strong>name: {user.username}</strong>
-              <span>, mail: {user.email}</span>
-              <span>, odbiór: {user.formData ? 'TAK' : 'NIE'}</span>
-            </li>
-          </ul>
+          <div className='admin__table-row' key={user.uid}>
+            <div>
+              <strong>{user.username}</strong>
+            </div>
+            <div>
+              <strong>{user.email}</strong>
+            </div>
+            <div> {user.formData ? 'TAK' : 'NIE'}</div>
+            <div>
+              {user.roles && user.roles.ADMIN === 'ADMIN' ? 'TAK' : 'NIE'}
+            </div>
+          </div>
         ))}
         <h2>Lista darowizn: </h2>
         {users.map(
           (user) =>
             user.formData && (
               <div key={user.uid}>
-                <h3>{user.username}</h3>
+                <h3>Darowizna od {user.username}</h3>
                 <h3>{user.email}</h3>
-                <ul>
-                  <li>
+                <div className='admin__table-row'>
+                  <div>
+                    Lokalizacja: <strong>{user.formData.localization}</strong>
+                  </div>
+                  <div>
                     Do oddania:
-                    {user.formData.handOver}, {user.formData.numbersOfBag}{' '}
-                    worków
-                  </li>
-                  <li>Lokalizacja: {user.formData.localization}</li>
-                  <li>Dla: {user.formData.whoYouWantToHelp.join(', ')}</li>
-                  <li>
-                    <ul>
-                      <p>Adres odbioru:</p>
-                      <li>
-                        Miasto:
-                        {user.formData.address.postalCod}{' '}
-                        {user.formData.address.city}
-                      </li>
-                      <li>Ulica: {user.formData.address.street}</li>
-                      <li>Tel: {user.formData.address.phone}</li>
-                      <li>Data: {user.formData.address.date}</li>
-                      <li>Godzina: {user.formData.address.time}</li>
-                      <li>Uwagi: {user.formData.address.comments}</li>
-                    </ul>
-                  </li>
-                </ul>
+                    <p>
+                      <strong>
+                        {user.formData.handOver}, {user.formData.numbersOfBag}{' '}
+                        worków
+                      </strong>
+                    </p>
+                  </div>
+                  <div>
+                    <strong>{user.formData.whoYouWantToHelp.join(', ')}</strong>
+                  </div>
+                </div>
+                <div className='admin__table-row'>
+                  <div>Adres odbioru: </div>
+                  <div>
+                    <p>
+                      {user.formData.address.postalCod}{' '}
+                      {user.formData.address.city}
+                    </p>
+                    ul. {user.formData.address.street}
+                  </div>
+                  <div>Tel: {user.formData.address.phone}</div>
+                </div>
+                <div className='admin__table-row'>
+                  <div>Data odbioru: {user.formData.address.date}</div>
+                  <div>Uwagi: {user.formData.address.comments}</div>
+                  <div>Godzina: {user.formData.address.time}</div>
+                </div>
               </div>
             )
         )}
