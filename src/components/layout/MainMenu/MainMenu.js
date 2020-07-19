@@ -11,7 +11,7 @@ const MainMenu = () => {
         <a href='/#info' className='mainMenu__nav--item' title='O co chodzi ?'>
           O co chodzi ?
         </a>
-        <a href='/#aboutUs' className='mainMenu__nav--item' title='O nas'>
+        <a href='/#about' className='mainMenu__nav--item' title='O nas'>
           O nas
         </a>
         <a

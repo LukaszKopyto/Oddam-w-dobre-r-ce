@@ -1,40 +1,38 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+import { AuthUserContext } from '../../Session'
 import { FirebaseContext } from '../../Firebase'
+import AdminContent from './AdminContent'
+import * as ROLES from '../../../constants/roles'
 
 const Admin = () => {
-  const [loading, setLoading] = useState(false)
-  const [users, setUsers] = useState([])
-
   const firebase = useContext(FirebaseContext)
 
-  useEffect(() => {
-    setLoading(true)
+  let history = useHistory()
 
-    firebase.users().on('value', (snapshot) => {
-      const userObject = snapshot.val()
-      const userList = Object.keys(userObject).map((key) => ({
-        ...userObject[key],
-        uid: key,
-      }))
-      setUsers(userList)
-      setLoading(false)
+  useEffect(() => {
+    let privateRoute = firebase.auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        firebase
+          .user(authUser.uid)
+          .once('value')
+          .then((snapshot) => {
+            const dbUser = snapshot.val()
+            if (!dbUser.roles || !dbUser.roles[ROLES.ADMIN]) {
+              history.push('/logowanie')
+            }
+          })
+      }
     })
     return () => {
-      firebase.users().off()
+      privateRoute()
     }
-  }, [firebase])
+  }, [firebase, history])
 
   return (
-    <div>
-      <h1>Admin</h1>
-      {loading && <p>Loading...</p>}
-      {users.map((user) => (
-        <ul key={user.uid}>
-          <li>name: {user.username}</li>
-          <li>mail: {user.email}</li>
-        </ul>
-      ))}
-    </div>
+    <AuthUserContext.Consumer>
+      {(authUser) => (authUser ? <AdminContent /> : 'Loading...')}
+    </AuthUserContext.Consumer>
   )
 }
 

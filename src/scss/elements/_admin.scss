@@ -1,0 +1,46 @@
+.admin__container {
+  width: 80vw;
+  margin: 50px auto 0;
+  & h1 {
+    font-weight: 800;
+  }
+  & h2 {
+    font-size: 20px;
+    margin: 15px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  & h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px 0;
+  }
+}
+.admin__table-header {
+  display: flex;
+  text-align: center;
+  & div {
+    padding: 12px;
+    margin-bottom: 2px;
+    border: 1px solid $background-color;
+    background: $focus-color;
+    width: 250px;
+    &:nth-child(odd) {
+      width: 100px;
+    }
+    &:nth-child(4) {
+      width: 170px;
+    }
+    & strong {
+      font-weight: 600;
+    }
+  }
+}
+.admin__table-row {
+  @extend .admin__table-header;
+  & div {
+    border: 1px solid $background-color;
+    background: gainsboro;
+    color: $dark-color;
+  }
+}
