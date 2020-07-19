@@ -1,6 +1,8 @@
-b# Oddam w dobre ręce - React app
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cadd87ae-0e34-4218-be61-dc191a8108f1/deploy-status)](https://app.netlify.com/sites/oddam-w-dobre-rece/deploys)
 
-> The project aims is to create a place where every one can donate unnecessary things to trusted institutions.</br>This project is the part of the Coders Lab course.
+# Oddam w dobre ręce - React app
+
+> The project aims is to create a place where every one can donate unnecessary things to trusted institutions.</br>This project is the part of the Coders Lab workshop.
 
 ## Table of contents
 
@@ -12,17 +14,17 @@ b# Oddam w dobre ręce - React app
 
 ## General info
 
-The project aims is to create a place where every one can donate unnecessary things to trusted institutions.
+The application aims to create a place where everyone can donate unnecessary things to trusted institutions.
 
-The project will be a website with form that will make it easier for users to return items.
+It is a website with form that will make it easier for users to return unnecessary items.
 
-- This project was created as a representation of an existing UX project
+- this project was created as a representation of an existing UX project
 - based on a design in [Adobe XD](https://xd.adobe.com/spec/f11fc670-7af2-4502-4013-c1f66f8d3332-872e/grid) without RWD
 - bootstrapped with Create React App.
 
 ## Live demo
 
-[]()
+[https://oddam-w-dobre-rece.netlify.app/](https://oddam-w-dobre-rece.netlify.app/)
 
 ## Screenshots
 
