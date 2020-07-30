@@ -16,7 +16,7 @@
 
 The application aims to create a place where everyone can donate unnecessary things to trusted institutions.
 
-It is a website with form that will make it easier for users to return unnecessary items.
+It is a website with a form that makes it easier for users to return things wich they don't need.
 
 - this project was created as a representation of an existing UX project
 - based on a design in [Adobe XD](https://xd.adobe.com/spec/f11fc670-7af2-4502-4013-c1f66f8d3332-872e/grid) without RWD
@@ -52,13 +52,13 @@ It is a website with form that will make it easier for users to return unnecessa
 - list of institutions in the form of three tabs with pagination for each
 - contact form with validation and sending data to API
 - smooth scrolling on Home Page
-- a complex multi-step form "oddaj rzeczy":
-  - using Formik with validation and error messages, and manage form state
+- a complex multi-step form (donate things):
+  - using Formik with validation and error messages, managing form state
   - custom checkboxes, radio buttons, select element
   - date picker
   - displaying a summary of the form
   - save the form data to the Firebase Realtime Database
-- display a summary on the home page based on the Firebase Realtime Database data, sent from the "oddaj rzeczy" form
+- display a summary on the home page based on the Firebase Realtime Database data, sent from the (donate things) form
 - Firebase authentication:
   - Sign Up (register with the ability to create an admin account)
   - Sign In
@@ -66,7 +66,7 @@ It is a website with form that will make it easier for users to return unnecessa
   - password reset
   - session handling
 - protected route with admin authorization
-- administrator view with a summary of all users and form data
+- administrator view with a summary of all users and data on forms
 
 ## Setup
 
